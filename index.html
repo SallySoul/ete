@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+  </head>
+  <body>
+
+    <div id="ete-app"> </div>
+
+    <script src='/ete.js'></script>
+
+    <script>
+    console.log("Starting script in index.html");
+    window.addEventListener('load', function () {
+      console.log("Window event handler called");
+      window.wasm_bindgen('/ete_bg.wasm')
+        .then(function () {
+          console.log("Post loading wasm called");
+          // Start our rust application. You can find `WebClient` in `src/lib.rs`
+          const webClient = new window.wasm_bindgen.WebClient()
+          webClient.start()
+
+          let time = Date.now();
+          function render () {
+            const dt = Date.now() - time
+
+            webClient.update(dt)
+            webClient.render()
+            window.requestAnimationFrame(render)
+
+            time = Date.now()
+          }
+
+          render()
+        })
+    })
+    </script>
+
+  </body>
+</html>

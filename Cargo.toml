@@ -1,0 +1,47 @@
+[package]
+name = "ete"
+version = "0.1.0"
+authors = ["RussellBentley <russell.w.bentley@icloud.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+console_error_panic_hook = "=0.1.6"
+cgmath = "0.17.0"
+js-sys = "0.3.25"
+wasm-bindgen = "0.2.48"
+camera_ss = "0.1.0"
+
+[dependencies.web-sys]
+version = "=0.3.25"
+features = [
+  'CssStyleDeclaration',
+  'Document',
+  'Element',
+  'Event',
+  'EventTarget',
+  'HtmlCanvasElement',
+  'HtmlElement',
+  'HtmlImageElement',
+  'HtmlInputElement',
+  'InputEvent',
+  'MouseEvent',
+  'Node',
+  'Touch',
+  'TouchEvent',
+  'TouchList',
+  'WebGlBuffer',
+  'WebGlFramebuffer',
+  'WebGlProgram',
+  'WebGlRenderbuffer',
+  'WebGlRenderingContext',
+  'WebGlShader',
+  'WebGlTexture',
+  'WebGlUniformLocation',
+  'WebGlVertexArrayObject',
+  'WheelEvent',
+  'Window',
+  'console',
+]
